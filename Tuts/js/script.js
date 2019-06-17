@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     // jQuery goes here...
 
     // Uncomment this line to fade out the red box on page load
@@ -18,13 +18,34 @@ $(function() {
     // $('p').hide();
     // $('p').slideDown(1500);
 
-    $('.blue-box').animate({
-        "margin-left":"+=200px",
-    }, 1000, "linear")
-    $('.blue-box').animate({
-        "margin-left":"-=200px",
-    }, 1000, "linear")
+    // $('.blue-box').animate({
+    //     "margin-left":"+=200px",
+    // }, 1000, "linear")
+    // $('.blue-box').animate({
+    //     "margin-left":"-=200px",
+    // }, 1000, "linear")
 
 });
 
-console.log("Master")
+$(function () {
+    // $("#list").find("li").css("background-color", "rgba(180,180,180,0.4");
+
+    // $("#list").children("li").css("background-color", "rgba(180,180,180,0.4");
+
+    // $("#list").parents("body").css("background-color", "rgba(180,180,180,0.4");
+
+    // $("#list").parent().css("background-color", "rgba(180,180,180,0.4");
+
+    // $("#list").siblings().css("background-color", "rgba(180,180,180,0.8");
+    // $("#list").siblings("p").css("background-color", "rgba(180,180,180,0.8");
+    // $("#list").siblings(":header").css("background-color", "rgba(180,180,180,0.8");
+
+    // $("#list").prev().css("background-color", "rgba(180,180,180,0.8");
+    // $("#list").next().css("background-color", "rgba(180,180,180,0.8");
+    // $("#list").prev().next().css("background-color", "rgba(180,180,180,0.8");
+    $(':header').next().css("background-color", "purple")
+    $('input:password').css("background-color", "purple")
+
+
+
+})
