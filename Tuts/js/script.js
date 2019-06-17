@@ -62,3 +62,5 @@ var FADE = {
     $("#list").css("background-color","yellow")
     $("input:submit").css("background-color","green")
 });
+
+console.log("hello world");
