@@ -26,3 +26,5 @@ $(function() {
     }, 1000, "linear")
 
 });
+
+console.log("Master")
