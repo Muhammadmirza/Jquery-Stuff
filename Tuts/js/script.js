@@ -36,7 +36,7 @@
 
 //     $("#list").parent().css("background-color", "rgba(180,180,180,0.4");
 
-//     $("#list").siblings().css("background-color", "rgba(180,180,180,0.8");
+     
 //     $("#list").siblings("p").css("background-color", "rgba(180,180,180,0.8");
 //     $("#list").siblings(":header").css("background-color", "rgba(180,180,180,0.8");
 
@@ -64,7 +64,32 @@
 // })
 
 
-$(function(){
-    $("ul ul:first").append("<li> i'm going to be the last sub-item!");
+$(function () {
+    //  $("ul ul:first").append("<li> i'm going to be the last sub-item!");
+    // $("<li> i'm going to be the last sub-item!</li>").appendTo("ul ul:first");
+
+    // $("ul ul:first").prepend("<li> i'm going to be the first sub-item!</li>");
+    // $("ul ul").prepend("<li> i'm going to be the first sub-item!</li>");
+    // $("<li> i'm going to be the first sub-item!</li>").prependTo("ul ul:first");
+    $("<h4> Muhammad Mirza </h4>").prependTo("#content");
+
+   // $(".red-box").after("<div class='red-box'>After Red Box </div>");
+   // $(".blue-box").before("<div class='blue-box'>Before blue Box </div>")
+//    $(".blue-box").before(function() {
+//        return "<div class='blue-box'>Blue 2</div>"
+//    });
+    // $(".blue-box").before($(".red-box"));
+    // $("p :first").after($("#list"));
+
+    $(function() {
+        var el = $('h1').siblings('div');
+        console.log(el);
+        el.each(function (index) {
+          if (index < 3) {
+            $(this).after($(this).clone());
+          }
+        });
+      });
+    
 
 });
