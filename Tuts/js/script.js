@@ -228,7 +228,17 @@ $(function(){
     gallery.removeData("name");
     console.log(gallery.data("name"));
 
-})
+    var i=0;
+    gallery.find("img").on("click", function(){
+        i = (i+1)%images.length;
+        console.log("gallery was clicked");
+        console.log(images[i]);
+        $(this).fadeOut(function(){
+            $(this).attr("src",images[i]).fadeIn();
+        })
+    })
+});
+
 
 
 $(function() {
@@ -289,7 +299,13 @@ $(function() {
         $(this).stop().fadeTo(500,1);
     })
 
+    // .on("click", function(){...})
+
+    // $("html").on("click keydown", function() {
+    //     console.log("mouse was clicked or key was pressed.")
+    // })
 
     
+
 
 })
