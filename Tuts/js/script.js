@@ -123,20 +123,173 @@ $(function () {
 
 $(function () {
     // $("li").remove();
-    $('form').children().not("input:text,textarea,br").remove();
+    // $('form').children().not("input:text,textarea,br").remove();
 
 
-    var detachedListItem = $("li").detach();
+    // var detachedListItem = $("li").detach();
 
-    $("#content").append(detachedListItem);
+    // $("#content").append(detachedListItem);
 
-    $("p:first").empty();
+    //$("p:first").empty();
 
 
-    $(".red-box, .green-box, .blue-box").empty();
+    // $(".red-box, .green-box, .blue-box").empty();
 
+    //asdsadsadsad
+
+    //attr(), prop(), val()
+
+    // var specialLink = $("#special-link");
+    // console.log(specialLink.attr("href"));
+    // console.log(specialLink.attr("title"));
+
+    // specialLink.attr("href","http://www.google.com");
+    // var checkbox = $("input:checkbox");
+    // console.log(checkbox.prop("checked"));
+
+    // var textinput = $('input:text');
+    // textinput.val("Muhammad Mirza")
+    // console.log(textinput.val());
+
+    // var rangeInput = $("input[type='range']");
+    // rangeInput.val("1")
+    // console.log(rangeInput.val());
+
+    // var imgSrc = $("img");
+    // imgSrc.attr("src", "C:/JQuery/Tuts/images/pic.png")
+    // console.log(imgSrc.attr("src"))
+    // var galleryimage = $(".gallery").find("img").first();
+    // var images = ["images/laptop-mobile_small.jpg", "images/pic.png","images/laptop-on-table_small.jpg","images/people-office-group-team_small.jpg"];
+    // console.log(galleryimage.attr("src"))
+
+    // var i=0;
+    // setInterval(function() {
+    //     i= (i+1)% images.length; // 0,1,2,0,1,2
+    //     galleryimage.fadeOut(function(){
+    //         $(this).attr("src", images[i]);
+    //         console.log($(this).attr("src"))
+    //         $(this).fadeIn();
+    //     });
+        
+    // },2000);
 
 
 
 
 });
+
+
+$(function(){
+    // $(".gallery").css("display","none");
+
+    // var redBox = $('.red-box');
+    // console.log(redBox.css("width"));
+    // console.log(redBox.width());
+
+    // redBox.css("background-color", "#AA7700");
+    // $('p').css("font-size","18px");
+    // redBox.css("width", "+=20px");
+    // redBox.css("user-select","none");
+    // var properties = $("p").css(['font-size', "line-height","color"])
+    // console.log(properties);
+
+    
+
+    // $('a').addClass("fancy-link");
+    // $('p:first').addClass("large emphasize");
+
+    // $('li li').addClass(function(index){
+    //     $(this).addClass("item-"+index);
+    //     console.log("item-"+ index);
+    // });
+
+    // $('div').addClass(function(index, currentClass){
+    //     if (currentClass=== "dummy") {
+    //         return "red-box";
+    //     }
+    // });
+
+    // $('.red-box').removeClass("red-box").addClass("green-box");
+
+    // $(".dummy").removeClass("dummy").addClass("green-box");
+
+
+    var gallery = $(".gallery")
+    var images = [
+        "images/laptop-mobile_small.jpg", 
+        "images/pic.png","images/laptop-on-table_small.jpg",
+        "images/people-office-group-team_small.jpg",
+    ];
+
+    gallery.data("availableImages", images);
+    console.log(gallery.data("availableImages"));
+    gallery.data("name", "My Gallery!");
+    console.log(gallery.data());
+    gallery.removeData("name");
+    console.log(gallery.data("name"));
+
+})
+
+
+$(function() {
+    //text(), html()
+
+    var firstPar = $("p:first");
+    console.log(firstPar.text())
+    console.log(firstPar.html());
+    console.log($("p").html());
+
+    // firstPar.text("<strong>Hello</strong> World!");
+    // firstPar.html("<strong>Hello</strong> World!"); 
+
+    var text = firstPar.html();
+    firstPar.html(text + ". This text is appended.");
+
+
+})
+
+
+$(function() { 
+    $("#btn-click").click(function(event){
+        console.log(event);
+        alert("button was clicked");
+    });
+
+
+
+    $(".red-box").click(function(event){
+        console.log(event);
+        $(this).fadeTo(1000, 0.5);
+    });
+
+    $("#btn-hover").hover(function(){
+        console.log("Button was hovered.")
+
+    });
+
+    $(".green-box").hover(function() {
+        $(this).text(("green button was hovered!"));
+    })
+
+    var blueBox = $(".blue-box");
+
+    // blueBox.mouseenter(function(){
+    //     $(this).stop().fadeTo(500,0.7);
+    // });
+
+    // blueBox.mouseleave(function(){
+    //     $(this).stop().fadeTo(500,1);
+    // })
+
+    //hover(handlerIn, handlerOut)
+
+    blueBox.hover(function(){
+        $(this).stop().fadeTo(500,0.7);
+    },function(){
+        $(this).stop().fadeTo(500,1);
+    })
+
+
+    
+
+})
