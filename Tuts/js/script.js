@@ -425,41 +425,54 @@ $(function () {
 
 //focus  and blur
 
-$(function () {
-    var inputFields = $("input[type='email'], input:text, input:password, textarea")
-    inputFields.focus(function () {
-        $(this).css("box-shadow", "0 0 px #666");
-    });
+// $(function () {
+//     var inputFields = $("input[type='email'], input:text, input:password, textarea")
+//     inputFields.focus(function () {
+//         $(this).css("box-shadow", "0 0 px #666");
+//     });
 
-    inputFields.blur(function () {
-        var text = $(this).val()
-        if (text.length <= 3) {
-            $(this).css("box-shadow", "0 0 8px red");
-        }
-        if (text.length >= 3) {
-            $(this).css("box-shadow", "0 0 8px green");
-        }
-    });
+//     inputFields.blur(function () {
+//         var text = $(this).val()
+//         if (text.length <= 3) {
+//             $(this).css("box-shadow", "0 0 8px red");
+//         }
+//         if (text.length >= 3) {
+//             $(this).css("box-shadow", "0 0 8px green");
+//         }
+//     });
 
 
-});
+// });
 
-$(function () {
-    $("#checkbox").change(function () {
-        var isChecked = $(this).is(":checked"); // prop("checked")
-        console.log(isChecked)
-        if (isChecked) {
-            $(this).add("label[for='cb']").css("box-shadow", '0 0 4px green')
-        } else{
-            $(this).add("label[for='cb']").css("box-shadow", '0 0 4px red')
-        }
+// $(function () {
+//     $("#checkbox").change(function () {
+//         var isChecked = $(this).is(":checked"); // prop("checked")
+//         console.log(isChecked)
+//         if (isChecked) {
+//             $(this).add("label[for='cb']").css("box-shadow", '0 0 4px green')
+//         } else{
+//             $(this).add("label[for='cb']").css("box-shadow", '0 0 4px red')
+//         }
             
-    })
+//     })
 
-    $('#selectbox').change(function () {
-        var prev = $(this).text();
-        if (prev != $(this.text)){
-            alert("Selectbox changed!")
+//     $('#selectbox').change(function () {
+//         var prev = $(this).find(":selected").text();
+//         alert(prev)
+//     })
+// })
+
+$(function () {
+    $("#form").submit(function(event){
+        var textarea = $("#message");
+        if (textarea.val().trim()==""){
+            textarea.css("box-shadow","0 0   4px red");
+            event.preventDefault(); 
+        } else{
+            //form will be sumitted.
         }
     })
+
+
+
 })
