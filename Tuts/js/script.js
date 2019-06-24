@@ -317,33 +317,108 @@
 
 
 
-function logEvent() {
-    console.log("Mouse was clicked or key was pressed.");
-}
+// function logEvent() {
+//     console.log("Mouse was clicked or key was pressed.");
+// }
 
+
+// $(function () {
+
+//     function switchToNextImage() {
+//         i = (i + 1) % images.length;
+//         console.log("gallery was clicked");
+//         console.log($(this))
+//         console.log(images[i]);
+//         $(this).fadeOut(function () {
+//             $(this).attr("src", images[i]).fadeIn();
+//         })
+//     }
+
+//     //$('html').on("click keydown", logEvent);
+
+//     var images = [
+//         "images/laptop-mobile_small.jpg",
+//         "images/pic.png", "images/laptop-on-table_small.jpg",
+//         "images/people-office-group-team_small.jpg",
+//     ];
+
+//     var i = 0;
+//     var img = $(".gallery").find("img");
+//     img.on("click", switchToNextImage);
+
+// })
+
+//Delegated events
+
+// $(function () {
+//     $("p").click(function () {
+//         $(this).slideUp();
+//     });
+
+//     $("#content").append("<p> This is a dynamically added paragraph </p>");
+
+//     $("#content").on("click", "p", function () {
+//         $(this).slideUp();
+//     });
+
+//     $("#content").append("<p> This is a dynamically added paragraph </p>");
+
+//     $("body").on("mouseenter", "li", function () {
+//         $(this).css("color", "green");
+//     })
+
+//     function greetUser(userdata) {
+//         username=userdata.user || "Anonymous";
+//         domain=userdata.domain || "example.com"; 
+//         alert("Welcome back " + username + "  at " + domain +"!")
+//     }
+//     $("#btn-click").click({
+//         user: "peter",
+//         domain: "www.google.com"
+//     }, function(event){
+//         greetUser(event.data);
+//     })
+
+
+// });
 
 $(function () {
+    var galleryItems = $(".gallery").find("img");
+    galleryItems.css("width", "33%").css("opacity", "0.7")
+    galleryItems.mouseenter(function () {
+        $(this).stop().fadeTo(400, 1);
+    })
+    galleryItems.mouseleave(function () {
+        $(this).stop().fadeTo(400, 0.7);
+    })
 
-    function switchToNextImage() {
-        i = (i + 1) % images.length;
-        console.log("gallery was clicked");
-        console.log($(this))
-        console.log(images[i]);
-        $(this).fadeOut(function () {
-            $(this).attr("src", images[i]).fadeIn();
-        })
-    }
+    galleryItems.click(function () {
+        console.log("image clicked")
+        var source = $(this).attr("src");
+        var image = $("<img>").attr("src", source).css("width", "100%");
+        $(".lightbox").empty().append(image).fadeIn(200);
+    });
+    $(".lightbox").click(function () {
+        $(this).stop().fadeOut();
+    })
+});
 
-    //$('html').on("click keydown", logEvent);
+$(function () {
+    //keypress() - EVIL!
 
-    var images = [
-        "images/laptop-mobile_small.jpg",
-        "images/pic.png", "images/laptop-on-table_small.jpg",
-        "images/people-office-group-team_small.jpg",
-    ];
+    var rightarrow = 39;
+    var leftarrow =37;
 
-    var i = 0;
-    var img = $(".gallery").find("img");
-    img.on("click", switchToNextImage);
+    $("html").keydown(function (event) {
+        console.log(event.which)
+        if (event.which == rightarrow) {
+            $(".blue-box").css("margin-left","+=10px")
+        }
+        if (event.which == leftarrow) {
+            $(".blue-box").css("margin-left","-=10px")
+        }
+
+    })
+
 
 })
