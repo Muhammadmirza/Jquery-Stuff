@@ -407,18 +407,59 @@ $(function () {
     //keypress() - EVIL!
 
     var rightarrow = 39;
-    var leftarrow =37;
+    var leftarrow = 37;
 
     $("html").keydown(function (event) {
         console.log(event.which)
         if (event.which == rightarrow) {
-            $(".blue-box").css("margin-left","+=10px")
+            $(".blue-box").css("margin-left", "+=10px")
         }
         if (event.which == leftarrow) {
-            $(".blue-box").css("margin-left","-=10px")
+            $(".blue-box").css("margin-left", "-=10px")
         }
 
     })
 
 
+})
+
+//focus  and blur
+
+$(function () {
+    var inputFields = $("input[type='email'], input:text, input:password, textarea")
+    inputFields.focus(function () {
+        $(this).css("box-shadow", "0 0 px #666");
+    });
+
+    inputFields.blur(function () {
+        var text = $(this).val()
+        if (text.length <= 3) {
+            $(this).css("box-shadow", "0 0 8px red");
+        }
+        if (text.length >= 3) {
+            $(this).css("box-shadow", "0 0 8px green");
+        }
+    });
+
+
+});
+
+$(function () {
+    $("#checkbox").change(function () {
+        var isChecked = $(this).is(":checked"); // prop("checked")
+        console.log(isChecked)
+        if (isChecked) {
+            $(this).add("label[for='cb']").css("box-shadow", '0 0 4px green')
+        } else{
+            $(this).add("label[for='cb']").css("box-shadow", '0 0 4px red')
+        }
+            
+    })
+
+    $('#selectbox').change(function () {
+        var prev = $(this).text();
+        if (prev != $(this.text)){
+            alert("Selectbox changed!")
+        }
+    })
 })
